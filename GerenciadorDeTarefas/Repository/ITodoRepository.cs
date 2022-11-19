@@ -8,5 +8,6 @@ namespace GerenciadorDeTarefas.Repository
         Todo EditTodo(Todo todo);
         bool DeleteTodo(Todo todo);
         Todo FindTodoById(int id);
+        List<Todo> FindAll();
     }
 }

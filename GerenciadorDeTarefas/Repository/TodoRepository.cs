@@ -37,6 +37,11 @@ namespace GerenciadorDeTarefas.Repository
             return todoFromDB;
         }
 
+        public List<Todo> FindAll()
+        {
+            return _context.Todos.ToList();
+        }
+
         public Todo FindTodoById(int id)
         {
             return _context.Todos.First(todo => todo.Id == id);

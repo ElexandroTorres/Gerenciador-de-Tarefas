@@ -1,0 +1,31 @@
+﻿@model List<Todo>
+@{
+    ViewData["Title"] = "Gerenciador de Tarefas";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                if(Model != null && Model.Any())
+                {
+                    foreach (Todo todo in Model)
+                    {
+                        <tr>
+                            <th scope="row">@todo.Id</th>
+                            <th>@todo.Title</th>
+                            <th>@todo.DateOfConclusion</th>
+                        </tr>
+                    }
+                }
+            }
+        </tbody>
+    </table>
+</div>
