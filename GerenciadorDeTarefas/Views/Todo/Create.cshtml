@@ -1,0 +1,25 @@
+﻿@model Todo
+@{
+    ViewData["Title"] = "Adicionar tarefa";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Adicionar nova tarefa</h1>
+</div>
+
+<form aasp-controller="Todo" asp-action="Create" method="post">
+
+  <div class="form-group">
+    <label for="title">Titulo</label>
+    <input type="text" asp-for="Title" class="form-control" placeholder="Digite o titulo da tarefa">
+  </div>
+
+  <div class="form-group">
+    <label for="dateOfConclusion">Data de Conclusão</label>
+    <input type="datetime" asp-for="DateOfConclusion" class="form-control" placeholder="Digite a data de conclusão">
+  </div>
+
+  
+  <button type="submit" class="btn btn-primary w-100">Adicionar</button>
+  <a class="btn btn-secondary w-100" asp-controller="Todo" asp-action="Index" role="button">Voltar</a>
+</form>

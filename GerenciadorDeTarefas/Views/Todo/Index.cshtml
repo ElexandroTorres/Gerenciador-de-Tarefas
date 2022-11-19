@@ -1,31 +1,36 @@
 ﻿@model List<Todo>
 @{
-    ViewData["Title"] = "Gerenciador de Tarefas";
+    ViewData["Title"] = "Gerenciamento de Tarefas";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <table>
-        <thead>
-            <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">Data</th>
-            </tr>
-        </thead>
-        <tbody>
-            @{
-                if(Model != null && Model.Any())
-                {
-                    foreach (Todo todo in Model)
-                    {
-                        <tr>
-                            <th scope="row">@todo.Id</th>
-                            <th>@todo.Title</th>
-                            <th>@todo.DateOfConclusion</th>
-                        </tr>
-                    }
-                }
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary" role="button" asp-controller="Todo" asp-action="Create">Adicionar nova tarefa</a>
+    </div>
+    <br/>
+    <h1 class="display-4">Lista de Tarefas</h1>
+
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Titulo</th>
+          <th scope="col">Data de Conclusão</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (Todo todo in Model)
+            {
+                <tr>
+                    <th scope="row">@todo.Id</th>
+                    <td>@todo.Title</td>
+                    <td>@todo.DateOfConclusion</td>
+                </tr>
             }
-        </tbody>
+        }
+      </tbody>
     </table>
 </div>

@@ -18,5 +18,17 @@ namespace GerenciadorDeTarefas.Controllers
             List<Todo> todoList = _todoRepository.FindAll();
             return View(todoList);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Todo todo)
+        {
+            _todoRepository.AddTodo(todo);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
