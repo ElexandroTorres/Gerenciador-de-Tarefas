@@ -8,7 +8,7 @@ namespace GerenciadorDeTarefas.Data
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         { }
 
-        public DbSet<Todo> Tasks { get; set; }
+        public DbSet<Todo> Todos { get; set; }
 
         
 
