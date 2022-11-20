@@ -19,9 +19,14 @@ namespace GerenciadorDeTarefas.Repository
             return todo;
         }
 
-        public bool DeleteTodo(Todo todo)
+        public bool DeleteTodo(int id)
         {
-            throw new NotImplementedException();
+            Todo todoFromDb = FindTodoById(id);
+
+            _context.Todos.Remove(todoFromDb);
+            _context.SaveChanges();
+
+            return true;
         }
 
         public Todo EditTodo(Todo todo)

@@ -6,7 +6,7 @@ namespace GerenciadorDeTarefas.Repository
     {
         Todo AddTodo(Todo todo);
         Todo EditTodo(Todo todo);
-        bool DeleteTodo(Todo todo);
+        bool DeleteTodo(int id);
         Todo FindTodoById(int id);
         List<Todo> FindAll();
     }

@@ -1,0 +1,11 @@
+﻿@model Todo
+@{
+    ViewData["Title"] = "Deletar Tarefa";
+}
+
+<div class="text-center">
+    <h3>Deseja deletar a tarefa: @Model.Title?</h3>
+</div>
+
+<a class="btn btn-primary w-100" role="button" asp-controller="Todo" asp-action="Index">Cancelar</a>
+<a class="btn btn-danger w-100" role="button" asp-controller="Todo" asp-action="DeleteTodo" asp-route-id="@Model.Id">Confirmar</a>

@@ -47,5 +47,18 @@ namespace GerenciadorDeTarefas.Controllers
             _todoRepository.EditTodo(todo);
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult Delete(int id)
+        {
+            Todo todo = _todoRepository.FindTodoById(id);
+            return View(todo);
+        }
+
+        public IActionResult DeleteTodo(int id)
+        {
+            _todoRepository.DeleteTodo(id);
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }
