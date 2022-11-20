@@ -33,7 +33,19 @@ namespace GerenciadorDeTarefas.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(todo);
-            
+        }
+
+        public IActionResult Edit(int id)
+        {
+            Todo todo = _todoRepository.FindTodoById(id);
+            return View(todo);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Todo todo)
+        {
+            _todoRepository.EditTodo(todo);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

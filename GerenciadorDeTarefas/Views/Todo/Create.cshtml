@@ -8,20 +8,20 @@
 </div>
 
 <form aasp-controller="Todo" asp-action="Create" method="post">
+    
+    <div class="form-group">
+        <label for="title">Titulo</label>
+        <input type="text" asp-for="Title" class="form-control" placeholder="Digite o titulo da tarefa">
+        @Html.ValidationMessageFor(todo => todo.Title)
+    </div>
 
-  <div class="form-group">
-    <label for="title">Titulo</label>
-    <input type="text" asp-for="Title" class="form-control" placeholder="Digite o titulo da tarefa">
-    @Html.ValidationMessageFor(todo => todo.Title)
-  </div>
-
-  <div class="form-group">
-    <label for="dateOfConclusion">Data de Conclusão</label>
-    <input type="date" value=@DateTime.Today.ToString("yyyy-MM-dd") asp-for="DateOfConclusion" class="form-control" placeholder="Digite a data de conclusão">
-    @Html.ValidationMessageFor(todo => todo.DateOfConclusion)
-  </div>
+    <div class="form-group">
+        <label for="dateOfConclusion">Data de Conclusão</label>
+        <input type="date" value=@DateTime.Today.ToString("yyyy-MM-dd") asp-for="DateOfConclusion" class="form-control" placeholder="Digite a data de conclusão">
+        @Html.ValidationMessageFor(todo => todo.DateOfConclusion)
+    </div>
 
   
-  <button type="submit" class="btn btn-primary w-100">Adicionar</button>
-  <a class="btn btn-secondary w-100" asp-controller="Todo" asp-action="Index" role="button">Voltar</a>
+    <button type="submit" class="btn btn-primary w-100">Adicionar</button>
+    <a class="btn btn-secondary w-100" asp-controller="Todo" asp-action="Index" role="button">Voltar</a>
 </form>
