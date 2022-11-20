@@ -27,8 +27,13 @@ namespace GerenciadorDeTarefas.Controllers
         [HttpPost]
         public IActionResult Create(Todo todo)
         {
-            _todoRepository.AddTodo(todo);
-            return RedirectToAction(nameof(Index));
+            if (ModelState.IsValid)
+            {
+                _todoRepository.AddTodo(todo);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(todo);
+            
         }
     }
 }
