@@ -1,19 +1,19 @@
 # Gerenciador de tarefas
 
-Aplicação web feita para o desafio tecnico para desenvolver .NET Junior da Assino. 
+Aplicação web feita para o desafio tecnico para desenvolvedor .NET Junior da Assino.
 A aplicação tem como objetivo gerenciar as tarefas de um professor, fornecendo as funcionaldiades de criação, edição, exclusão e listagem.
 Foram utilizados no desenvolvimento o Microsoft .Net Framework 6.0, o Entity Framework e o SQL Server como banco de dados.
 
 ### * Alguns funcionalidades que o aplicativo possui *
 
- - Tela inicial com uma lista de todas as tarefas ja cadastradas.
+ - Tela inicial com uma lista de todas as tarefas ja cadastradas ordenadas pela data de conclusão.
  - As tarefas estão divididas em 3 categorias: Tarefas de dias anteriores , do dia atual e dos dias seguintes, cada categoria identificada com uma cor.
  - Criação, Edição e Exclusão de tarefas.
 
 ### Como executar a aplicação
 É necessario ter instalado o Microsoft .Net Framework 6.0 e o SQL Server.
 
--> Inicialmente, fazer um clone do repositorio para a sua maquina local:
+-> Inicialmente é preciso fazer um clone do repositorio para a sua maquina local:
 ```console
 git clone https://github.com/ElexandroTorres/Gerenciador-de-Tarefas
 ```
