@@ -20,8 +20,8 @@
         <input type="date" value=@DateTime.Today.ToString("yyyy-MM-dd") asp-for="DateOfConclusion" class="form-control" placeholder="Digite a data de conclusão">
         @Html.ValidationMessageFor(todo => todo.DateOfConclusion)
     </div>
-
-  
+    
+    <br/>
     <button type="submit" class="btn btn-primary w-100">Adicionar</button>
     <a class="btn btn-secondary w-100" asp-controller="Todo" asp-action="Index" role="button">Voltar</a>
 </form>

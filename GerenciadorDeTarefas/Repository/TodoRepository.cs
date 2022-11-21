@@ -45,7 +45,7 @@ namespace GerenciadorDeTarefas.Repository
         public List<Todo> FindAll()
         {
             List<Todo> allTodos = _context.Todos.ToList();
-            allTodos.Sort((x, y) => DateTime.Compare(x.DateOfConclusion, y.DateOfConclusion));
+            allTodos.Sort((x, y) => DateTime.Compare(y.DateOfConclusion, x.DateOfConclusion));
 
             return allTodos;
         }

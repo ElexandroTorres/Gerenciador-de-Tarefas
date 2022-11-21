@@ -9,11 +9,15 @@
     </div>
     <br/>
     <h1 class="display-4">Lista de Tarefas</h1>
-
+    <div>
+        <span class="p-2 mb-2 bg-secondary text-white">Dias Anteriores</span>
+        <span class="p-2 mb-2 bg-success text-white">Hoje</span>
+        <span class="p-2 mb-2 bg-info text-white">Proximos Dias</span>
+    </div>
+    <br/>
     <table class="table">
-        <thead class="thead-dark">
+        <thead class="table-dark">
             <tr>
-                <th scope="col">#</th>
                 <th scope="col">Titulo</th>
                 <th scope="col">Data de Conclusão</th>
                 <th scope="col"></th>
@@ -22,15 +26,26 @@
         <tbody>
             @if (Model != null && Model.Any())
             {
+                string rowClass = "";
                 foreach (Todo todo in Model)
                 {
-                    <tr>
-                        <th scope="row">@todo.Id</th>
+                    int dateCompare = todo.DateOfConclusion.Date.CompareTo(DateTime.Now.Date);
+                    if(dateCompare == 0)
+                    {
+                        rowClass = "table-success";
+                    } else if(dateCompare > 0)
+                    {
+                        rowClass = "table-info";
+                    } else
+                    {
+                        rowClass = "table-secondary";
+                    }
+                    <tr class="@rowClass">
                         <td>@todo.Title</td>
                         <td>@todo.DateOfConclusion.ToString("dd/MM/yyyy")</td>
                         <td>
                             <div class="btn-group" role="group">
-                                <a role="button" class="btn btn-primary" asp-route-id="@todo.Id" asp-controller="Todo" asp-action="Edit">Editar</a>
+                                <a role="button" class="btn btn-primary me-1" asp-route-id="@todo.Id" asp-controller="Todo" asp-action="Edit">Editar</a>
                                 <a role="button" class="btn btn-danger" asp-route-id="@todo.Id" asp-controller="Todo" asp-action="Delete">Excluir</a>
                             </div>
                         </td>
