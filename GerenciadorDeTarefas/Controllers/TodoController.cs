@@ -38,8 +38,7 @@ namespace GerenciadorDeTarefas.Controllers
         public IActionResult Edit(int id)
         {
             Todo todo = _todoRepository.FindTodoById(id);
-            return View(todo);
-            
+            return View(todo);            
         }
 
         [HttpPost]
@@ -64,6 +63,5 @@ namespace GerenciadorDeTarefas.Controllers
             _todoRepository.DeleteTodo(id);
             return RedirectToAction(nameof(Index));
         }
-
     }
 }

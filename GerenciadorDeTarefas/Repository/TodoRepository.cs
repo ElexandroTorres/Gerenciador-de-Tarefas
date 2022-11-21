@@ -1,5 +1,6 @@
 ﻿using GerenciadorDeTarefas.Data;
 using GerenciadorDeTarefas.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace GerenciadorDeTarefas.Repository
 {
@@ -16,6 +17,7 @@ namespace GerenciadorDeTarefas.Repository
         {
             _context.Todos.Add(todo);
             _context.SaveChanges();
+
             return todo;
         }
 
@@ -31,15 +33,15 @@ namespace GerenciadorDeTarefas.Repository
 
         public Todo EditTodo(Todo todo)
         {
-            Todo todoFromDB = FindTodoById(todo.Id);
+            Todo todoFromDb = FindTodoById(todo.Id);
 
-            todoFromDB.Title = todo.Title;
-            todoFromDB.DateOfConclusion = todo.DateOfConclusion;
+            todoFromDb.Title = todo.Title;
+            todoFromDb.DateOfConclusion = todo.DateOfConclusion;
 
-            _context.Todos.Update(todoFromDB);
+            _context.Todos.Update(todoFromDb);
             _context.SaveChanges();
 
-            return todoFromDB;
+            return todoFromDb;
         }
 
         public List<Todo> FindAll()
@@ -52,7 +54,14 @@ namespace GerenciadorDeTarefas.Repository
 
         public Todo FindTodoById(int id)
         {
-            return _context.Todos.First(todo => todo.Id == id);
+            Todo? todoFromDb = _context.Todos.FirstOrDefault(todo => todo.Id == id);
+
+            if(todoFromDb == null)
+            {
+                throw new Exception("Não foi possivel encontrar a tarefa com o id informado.");
+            }
+
+            return todoFromDb;
         }
     }
 }
